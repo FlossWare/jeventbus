@@ -1,0 +1,10 @@
+org/flossware/jeventbus/InMemoryMessageBus$SubscriptionImpl.class
+org/flossware/jeventbus/api/Message$Builder.class
+org/flossware/jeventbus/api/MessageHandler.class
+org/flossware/jeventbus/api/Subscription.class
+org/flossware/jeventbus/api/Message.class
+org/flossware/jeventbus/api/ServiceRegistry.class
+org/flossware/jeventbus/api/MessageBus.class
+org/flossware/jeventbus/ServiceRegistryImpl$ServiceEntry.class
+org/flossware/jeventbus/ServiceRegistryImpl.class
+org/flossware/jeventbus/InMemoryMessageBus.class
