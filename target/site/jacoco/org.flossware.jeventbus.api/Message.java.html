@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Message.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JEventBus</a> &gt; <a href="index.source.html" class="el_package">org.flossware.jeventbus.api</a> &gt; <span class="el_source">Message.java</span></div><h1>Message.java</h1><pre class="source lang-java linenums">package org.flossware.jeventbus.api;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+/**
+ * Message for inter-application communication via the message bus.
+ *
+ * &lt;p&gt;Messages contain:&lt;/p&gt;
+ * &lt;ul&gt;
+ *   &lt;li&gt;Unique ID (auto-generated if not provided)&lt;/li&gt;
+ *   &lt;li&gt;Topic for routing&lt;/li&gt;
+ *   &lt;li&gt;Source application ID&lt;/li&gt;
+ *   &lt;li&gt;Custom headers (metadata)&lt;/li&gt;
+ *   &lt;li&gt;Binary payload (content)&lt;/li&gt;
+ *   &lt;li&gt;Timestamp (auto-generated if not provided)&lt;/li&gt;
+ * &lt;/ul&gt;
+ *
+ * &lt;p&gt;Example:&lt;/p&gt;
+ * &lt;pre&gt;{@code
+ * Message msg = Message.builder()
+ *     .topic(&quot;events&quot;)
+ *     .sourceApplicationId(&quot;app1&quot;)
+ *     .payload(&quot;Hello&quot;.getBytes())
+ *     .header(&quot;priority&quot;, &quot;high&quot;)
+ *     .build();
+ * }&lt;/pre&gt;
+ *
+ * @see MessageBus
+ * @see MessageHandler
+ */
+public class Message {
+    private final String id;
+    private final String topic;
+    private final String sourceApplicationId;
+    private final Map&lt;String, Object&gt; headers;
+    private final byte[] payload;
+    private final long timestamp;
+
+<span class="fc" id="L42">    private Message(Builder builder) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        this.id = builder.id != null ? builder.id : UUID.randomUUID().toString();</span>
+<span class="fc" id="L44">        this.topic = builder.topic;</span>
+<span class="fc" id="L45">        this.sourceApplicationId = builder.sourceApplicationId;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        this.headers = builder.headers != null ?</span>
+<span class="fc" id="L47">                new HashMap&lt;&gt;(builder.headers) : Collections.emptyMap();</span>
+<span class="fc" id="L48">        this.payload = builder.payload;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        this.timestamp = builder.timestamp &gt; 0 ? builder.timestamp : System.currentTimeMillis();</span>
+<span class="fc" id="L50">    }</span>
+
+    /**
+     * Returns the message identifier.
+     *
+     * @return the message ID
+     */
+    public String getId() {
+<span class="fc" id="L58">        return id;</span>
+    }
+
+    /**
+     * Returns the message topic.
+     *
+     * @return the topic name
+     */
+    public String getTopic() {
+<span class="fc" id="L67">        return topic;</span>
+    }
+
+    /**
+     * Returns the source application identifier.
+     *
+     * @return the ID of the sending application
+     */
+    public String getSourceApplicationId() {
+<span class="fc" id="L76">        return sourceApplicationId;</span>
+    }
+
+    /**
+     * Returns the message headers.
+     *
+     * @return an unmodifiable map of headers
+     */
+    public Map&lt;String, Object&gt; getHeaders() {
+<span class="fc" id="L85">        return Collections.unmodifiableMap(headers);</span>
+    }
+
+    /**
+     * Returns the message payload.
+     *
+     * @return the binary message content
+     */
+    public byte[] getPayload() {
+<span class="fc" id="L94">        return payload;</span>
+    }
+
+    /**
+     * Returns the message timestamp.
+     *
+     * @return the timestamp in milliseconds since epoch
+     */
+    public long getTimestamp() {
+<span class="fc" id="L103">        return timestamp;</span>
+    }
+
+    /**
+     * Creates a new builder for constructing messages.
+     *
+     * @return a new builder instance
+     */
+    public static Builder builder() {
+<span class="fc" id="L112">        return new Builder();</span>
+    }
+
+    /**
+     * Builder for constructing Message instances.
+     * ID and timestamp are auto-generated if not provided.
+     */
+<span class="fc" id="L119">    public static class Builder {</span>
+        private String id;
+        private String topic;
+        private String sourceApplicationId;
+        private Map&lt;String, Object&gt; headers;
+        private byte[] payload;
+        private long timestamp;
+
+        /**
+         * Sets the message ID.
+         * Auto-generated if not set.
+         *
+         * @param id the message identifier
+         * @return this builder
+         */
+        public Builder id(String id) {
+<span class="fc" id="L135">            this.id = id;</span>
+<span class="fc" id="L136">            return this;</span>
+        }
+
+        /**
+         * Sets the message topic for routing.
+         *
+         * @param topic the topic name
+         * @return this builder
+         */
+        public Builder topic(String topic) {
+<span class="fc" id="L146">            this.topic = topic;</span>
+<span class="fc" id="L147">            return this;</span>
+        }
+
+        /**
+         * Sets the source application identifier.
+         *
+         * @param sourceApplicationId the ID of the sending application
+         * @return this builder
+         */
+        public Builder sourceApplicationId(String sourceApplicationId) {
+<span class="fc" id="L157">            this.sourceApplicationId = sourceApplicationId;</span>
+<span class="fc" id="L158">            return this;</span>
+        }
+
+        /**
+         * Sets the complete map of message headers.
+         * Replaces any previously added headers.
+         *
+         * @param headers the headers map
+         * @return this builder
+         */
+        public Builder headers(Map&lt;String, Object&gt; headers) {
+<span class="fc" id="L169">            this.headers = headers;</span>
+<span class="fc" id="L170">            return this;</span>
+        }
+
+        /**
+         * Adds a single message header.
+         * Can be called multiple times to build headers incrementally.
+         *
+         * @param key the header key
+         * @param value the header value
+         * @return this builder
+         */
+        public Builder header(String key, Object value) {
+<span class="fc bfc" id="L182" title="All 2 branches covered.">            if (this.headers == null) {</span>
+<span class="fc" id="L183">                this.headers = new HashMap&lt;&gt;();</span>
+            }
+<span class="fc" id="L185">            this.headers.put(key, value);</span>
+<span class="fc" id="L186">            return this;</span>
+        }
+
+        /**
+         * Sets the message payload.
+         *
+         * @param payload the binary message content
+         * @return this builder
+         */
+        public Builder payload(byte[] payload) {
+<span class="fc" id="L196">            this.payload = payload;</span>
+<span class="fc" id="L197">            return this;</span>
+        }
+
+        /**
+         * Sets the message timestamp.
+         * Auto-generated to current time if not set.
+         *
+         * @param timestamp the timestamp in milliseconds since epoch
+         * @return this builder
+         */
+        public Builder timestamp(long timestamp) {
+<span class="fc" id="L208">            this.timestamp = timestamp;</span>
+<span class="fc" id="L209">            return this;</span>
+        }
+
+        /**
+         * Builds the Message instance.
+         * Auto-generates ID and timestamp if not provided.
+         *
+         * @return a new Message with the configured values
+         */
+        public Message build() {
+<span class="fc" id="L219">            return new Message(this);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

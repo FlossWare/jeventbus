@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.291" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.287" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/test-classes:/home/sfloess/Development/github/FlossWare/jeventbus/target/classes:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:"/>
+    <property name="java.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/test-classes:/home/sfloess/Development/github/FlossWare/jeventbus/target/classes:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/6.1.0/junit-jupiter-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/6.1.0/junit-jupiter-api-6.1.0.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/6.1.0/junit-platform-commons-6.1.0.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/6.1.0/junit-jupiter-params-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/6.1.0/junit-jupiter-engine-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/6.1.0/junit-platform-engine-6.1.0.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
@@ -13,9 +13,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/home/sfloess/.sdkman/candidates/java/21.0.11-tem/lib"/>
-    <property name="sun.java.command" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/surefire/surefirebooter-20260524003835047_3.jar /home/sfloess/Development/github/FlossWare/jeventbus/target/surefire 2026-05-24T00-38-34_907-jvmRun1 surefire-20260524003835047_1tmp surefire_0-20260524003835047_2tmp"/>
+    <property name="sun.java.command" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/surefire/surefirebooter-20260524185954426_3.jar /home/sfloess/Development/github/FlossWare/jeventbus/target/surefire 2026-05-24T18-59-54_231-jvmRun1 surefire-20260524185954426_1tmp surefire_0-20260524185954426_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/test-classes:/home/sfloess/Development/github/FlossWare/jeventbus/target/classes:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:"/>
+    <property name="surefire.test.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/test-classes:/home/sfloess/Development/github/FlossWare/jeventbus/target/classes:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/6.1.0/junit-jupiter-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/6.1.0/junit-jupiter-api-6.1.0.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/6.1.0/junit-platform-commons-6.1.0.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/6.1.0/junit-jupiter-params-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/6.1.0/junit-jupiter-engine-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/6.1.0/junit-platform-engine-6.1.0.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/sfloess"/>
     <property name="user.language" value="en"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/surefire/surefirebooter-20260524003835047_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/surefire/surefirebooter-20260524185954426_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.11+10-LTS"/>
     <property name="user.name" value="sfloess"/>
@@ -55,61 +55,61 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testMultipleTopics" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.05">
-    <system-out><![CDATA[00:38:36.183 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
-00:38:36.224 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'topic1'. Total subscribers: 1
-00:38:36.225 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'topic2'. Total subscribers: 1
-00:38:36.226 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'topic1': 1 subscribers
-00:38:36.227 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'topic2': 1 subscribers
-00:38:36.229 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+  <testcase name="testMultipleTopics" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.016">
+    <system-out><![CDATA[18:59:57.786 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
+18:59:57.790 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'topic1'. Total subscribers: 1
+18:59:57.791 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'topic2'. Total subscribers: 1
+18:59:57.791 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'topic1': 1 subscribers
+18:59:57.794 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'topic2': 1 subscribers
+18:59:57.797 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
 ]]></system-out>
   </testcase>
   <testcase name="testUnsubscribe" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.206">
-    <system-out><![CDATA[00:38:36.233 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
-00:38:36.234 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
-00:38:36.235 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 1 subscribers
-00:38:36.336 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Unsubscribed from topic 'test-topic'. Remaining subscribers: 0
-00:38:36.336 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- No subscribers for topic: test-topic
-00:38:36.437 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+    <system-out><![CDATA[18:59:57.802 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
+18:59:57.803 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
+18:59:57.803 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 1 subscribers
+18:59:57.905 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Unsubscribed from topic 'test-topic'. Remaining subscribers: 0
+18:59:57.905 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- No subscribers for topic: test-topic
+18:59:58.006 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
 ]]></system-out>
   </testcase>
-  <testcase name="testShutdown" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.006">
-    <system-out><![CDATA[00:38:36.441 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
-00:38:36.442 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
-00:38:36.442 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 1 subscribers
-00:38:36.444 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
-00:38:36.445 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+  <testcase name="testShutdown" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.007">
+    <system-out><![CDATA[18:59:58.010 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
+18:59:58.011 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
+18:59:58.011 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 1 subscribers
+18:59:58.013 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+18:59:58.014 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
 ]]></system-out>
   </testcase>
   <testcase name="testMessageWithHeaders" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.004">
-    <system-out><![CDATA[00:38:36.447 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
-00:38:36.448 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
-00:38:36.448 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 1 subscribers
-00:38:36.449 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+    <system-out><![CDATA[18:59:58.017 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
+18:59:58.018 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
+18:59:58.018 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 1 subscribers
+18:59:58.019 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
 ]]></system-out>
   </testcase>
-  <testcase name="testMultipleSubscribers" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.004">
-    <system-out><![CDATA[00:38:36.452 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
-00:38:36.452 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
-00:38:36.453 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 2
-00:38:36.453 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 3
-00:38:36.453 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 3 subscribers
-00:38:36.454 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+  <testcase name="testMultipleSubscribers" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.007">
+    <system-out><![CDATA[18:59:58.023 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
+18:59:58.024 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
+18:59:58.024 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 2
+18:59:58.024 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 3
+18:59:58.025 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 3 subscribers
+18:59:58.027 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
 ]]></system-out>
   </testcase>
-  <testcase name="testPublishWithNoSubscribers" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.002">
-    <system-out><![CDATA[00:38:36.457 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
-00:38:36.457 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- No subscribers for topic: no-subscribers
-00:38:36.458 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+  <testcase name="testPublishWithNoSubscribers" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.004">
+    <system-out><![CDATA[18:59:58.032 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
+18:59:58.033 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- No subscribers for topic: no-subscribers
+18:59:58.033 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
 ]]></system-out>
   </testcase>
-  <testcase name="testHandlerException" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.007">
-    <system-out><![CDATA[00:38:36.460 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
-00:38:36.461 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
-00:38:36.461 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 2
-00:38:36.462 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 2 subscribers
-00:38:36.463 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
-00:38:36.462 [message-bus-dispatcher] ERROR org.flossware.jeventbus.InMemoryMessageBus -- Error delivering message to subscriber on topic 'test-topic'
+  <testcase name="testHandlerException" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.015">
+    <system-out><![CDATA[18:59:58.037 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
+18:59:58.038 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
+18:59:58.038 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 2
+18:59:58.039 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 2 subscribers
+18:59:58.041 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+18:59:58.040 [message-bus-dispatcher] ERROR org.flossware.jeventbus.InMemoryMessageBus -- Error delivering message to subscriber on topic 'test-topic'
 java.lang.RuntimeException: Handler error
 	at org.flossware.jeventbus.InMemoryMessageBusTest.lambda$testHandlerException$7(InMemoryMessageBusTest.java:191)
 	at org.flossware.jeventbus.InMemoryMessageBus.lambda$publish$1(InMemoryMessageBus.java:106)
@@ -120,11 +120,11 @@ java.lang.RuntimeException: Handler error
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 ]]></system-out>
   </testcase>
-  <testcase name="testPublishAndReceive" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.003">
-    <system-out><![CDATA[00:38:36.467 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
-00:38:36.468 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
-00:38:36.468 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 1 subscribers
-00:38:36.470 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
+  <testcase name="testPublishAndReceive" classname="org.flossware.jeventbus.InMemoryMessageBusTest" time="0.015">
+    <system-out><![CDATA[18:59:58.059 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- InMemoryMessageBus started
+18:59:58.060 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- New subscription to topic 'test-topic'. Total subscribers: 1
+18:59:58.061 [main] DEBUG org.flossware.jeventbus.InMemoryMessageBus -- Publishing message to topic 'test-topic': 1 subscribers
+18:59:58.063 [main] INFO org.flossware.jeventbus.InMemoryMessageBus -- Shutting down message bus
 ]]></system-out>
   </testcase>
 </testsuite>

@@ -105,6 +105,40 @@ class InMemoryMessageBusEdgeCasesTest {
     }
 
     @Test
+    @DisplayName("Should handle unsubscribe with SubscriptionImpl via messageBus.unsubscribe()")
+    void testUnsubscribeWithSubscriptionImpl() throws Exception {
+        messageBus = new InMemoryMessageBus();
+
+        CountDownLatch latch = new CountDownLatch(1);
+        AtomicBoolean messageReceived = new AtomicBoolean(false);
+
+        // Subscribe and get the SubscriptionImpl
+        Subscription subscription = messageBus.subscribe("test-topic", message -> {
+            messageReceived.set(true);
+            latch.countDown();
+        });
+
+        assertTrue(subscription.isActive());
+
+        // Unsubscribe via messageBus.unsubscribe() instead of subscription.cancel()
+        messageBus.unsubscribe(subscription);
+
+        assertFalse(subscription.isActive());
+
+        // Message should not be delivered after unsubscribe
+        Message msg = Message.builder()
+                .topic("test-topic")
+                .sourceApplicationId("test-app")
+                .payload("Test".getBytes())
+                .build();
+
+        messageBus.publish("test-topic", msg);
+
+        Thread.sleep(100); // Give time for any potential delivery
+        assertFalse(messageReceived.get());
+    }
+
+    @Test
     @DisplayName("Should handle shutdown with pending messages")
     void testShutdownWithPendingMessages() throws Exception {
         messageBus = new InMemoryMessageBus();

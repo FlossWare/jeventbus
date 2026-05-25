@@ -1,0 +1,53 @@
+@options
+@packages
+-classpath
+'/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar'
+-encoding
+'UTF-8'
+-protected
+-quiet
+--release
+21
+-sourcepath
+'/home/sfloess/Development/github/FlossWare/jeventbus/src/main/java:/home/sfloess/Development/github/FlossWare/jeventbus/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs'
+-docencoding
+'UTF-8'
+-Xdoclint:none
+-doctitle
+'JEventBus 1.0 API'
+-use
+-version
+-windowtitle
+'JEventBus 1.0 API'
+org.flossware.jeventbus.api
+org.flossware.jeventbus
+/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar = 1693757672000
+/home/sfloess/Development/github/FlossWare/jeventbus/src/main/java = 1779600511359
+/home/sfloess/Development/github/FlossWare/jeventbus/target/generated-sources/annotations = 1779667163113
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/element-list = 1779667213217
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/overview-tree.html = 1779667213339
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/index.html = 1779667213345
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/allclasses-index.html = 1779667213389
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/allpackages-index.html = 1779667213393
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/module-search-index.js = 1779667213396
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/package-search-index.js = 1779667213396
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/type-search-index.js = 1779667213396
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/member-search-index.js = 1779667213398
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/tag-search-index.js = 1779667213398
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/index-all.html = 1779667213439
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/search.html = 1779667213443
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/overview-summary.html = 1779667213446
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/help-doc.html = 1779667213453
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/stylesheet.css = 1779667213457
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/script.js = 1779667213458
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/copy.svg = 1779667213459
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/link.svg = 1779667213459
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/search.js = 1779667213462
+/home/sfloess/Development/github/FlossWare/jeventbus/target/apidocs/search-page.js = 1779667213465

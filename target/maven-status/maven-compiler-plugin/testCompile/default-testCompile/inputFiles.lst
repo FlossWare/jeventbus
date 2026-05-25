@@ -1,2 +1,6 @@
 /home/sfloess/Development/github/FlossWare/jeventbus/src/test/java/org/flossware/jeventbus/ServiceRegistryImplTest.java
+/home/sfloess/Development/github/FlossWare/jeventbus/src/test/java/org/flossware/jeventbus/api/MessageTest.java
 /home/sfloess/Development/github/FlossWare/jeventbus/src/test/java/org/flossware/jeventbus/InMemoryMessageBusTest.java
+/home/sfloess/Development/github/FlossWare/jeventbus/src/test/java/org/flossware/jeventbus/InMemoryMessageBusEdgeCasesTest.java
+/home/sfloess/Development/github/FlossWare/jeventbus/src/test/java/org/flossware/jeventbus/ServiceRegistryImplEdgeCasesTest.java
+/home/sfloess/Development/github/FlossWare/jeventbus/src/test/java/org/flossware/jeventbus/InMemoryMessageBusShutdownTest.java

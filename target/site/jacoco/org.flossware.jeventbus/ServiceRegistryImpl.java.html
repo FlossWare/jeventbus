@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceRegistryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JEventBus</a> &gt; <a href="index.source.html" class="el_package">org.flossware.jeventbus</a> &gt; <span class="el_source">ServiceRegistryImpl.java</span></div><h1>ServiceRegistryImpl.java</h1><pre class="source lang-java linenums">package org.flossware.jeventbus;
+
+import org.flossware.jeventbus.api.ServiceRegistry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+/**
+ * Service registry for inter-application service discovery.
+ * Allows applications to register and lookup services.
+ * &lt;p&gt;
+ * This implementation provides a type-safe service registry where applications
+ * can register service implementations and other applications can discover them
+ * by interface type. Multiple implementations of the same interface are supported.
+ * &lt;p&gt;
+ * Example usage:
+ * {@code
+ * ServiceRegistryImpl registry = new ServiceRegistryImpl();
+ *
+ * // Register a service
+ * MyService service = new MyServiceImpl();
+ * registry.registerService(MyService.class, service);
+ *
+ * // Lookup a service
+ * Optional&lt;MyService&gt; found = registry.getService(MyService.class);
+ * found.ifPresent(s -&gt; s.doSomething());
+ *
+ * // Get all implementations
+ * List&lt;MyService&gt; allServices = registry.getAllServices(MyService.class);
+ *
+ * // Unregister
+ * registry.unregisterService(MyService.class, service);
+ * }
+ *
+ * @see ServiceRegistry
+ */
+public class ServiceRegistryImpl implements ServiceRegistry {
+
+<span class="fc" id="L42">    private static final Logger logger = LoggerFactory.getLogger(ServiceRegistryImpl.class);</span>
+
+    private final Map&lt;Class&lt;?&gt;, List&lt;ServiceEntry&gt;&gt; services;
+
+    /**
+     * Creates a new service registry.
+     */
+<span class="fc" id="L49">    public ServiceRegistryImpl() {</span>
+<span class="fc" id="L50">        this.services = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L51">        logger.info(&quot;ServiceRegistry created&quot;);</span>
+<span class="fc" id="L52">    }</span>
+
+    /**
+     * Registers a service implementation for the specified interface.
+     * &lt;p&gt;
+     * The service interface must be an interface type, and the implementation
+     * must implement that interface. Multiple implementations can be registered
+     * for the same interface.
+     *
+     * @param &lt;T&gt; the service interface type
+     * @param serviceInterface the interface class
+     * @param implementation the implementation instance
+     * @throws NullPointerException if serviceInterface or implementation is null
+     * @throws IllegalArgumentException if serviceInterface is not an interface or
+     *                                  implementation does not implement the interface
+     */
+    @Override
+    public &lt;T&gt; void registerService(Class&lt;T&gt; serviceInterface, T implementation) {
+<span class="fc" id="L70">        Objects.requireNonNull(serviceInterface, &quot;serviceInterface cannot be null&quot;);</span>
+<span class="fc" id="L71">        Objects.requireNonNull(implementation, &quot;implementation cannot be null&quot;);</span>
+
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        if (!serviceInterface.isInterface()) {</span>
+<span class="fc" id="L74">            throw new IllegalArgumentException(&quot;serviceInterface must be an interface, got: &quot; + serviceInterface);</span>
+        }
+
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if (!serviceInterface.isInstance(implementation)) {</span>
+<span class="fc" id="L78">            throw new IllegalArgumentException(</span>
+<span class="fc" id="L79">                    &quot;implementation must implement &quot; + serviceInterface.getName());</span>
+        }
+
+<span class="fc" id="L82">        ServiceEntry entry = new ServiceEntry(implementation);</span>
+
+<span class="fc" id="L84">        services.computeIfAbsent(serviceInterface, k -&gt; new CopyOnWriteArrayList&lt;&gt;())</span>
+<span class="fc" id="L85">                .add(entry);</span>
+
+<span class="fc" id="L87">        logger.info(&quot;Registered service: {} -&gt; {}&quot;, serviceInterface.getName(),</span>
+<span class="fc" id="L88">                implementation.getClass().getName());</span>
+<span class="fc" id="L89">    }</span>
+
+    /**
+     * Returns the first registered implementation for the specified service interface.
+     * &lt;p&gt;
+     * If multiple implementations are registered, returns the first one that was registered.
+     * Use {@link #getAllServices(Class)} to get all implementations.
+     *
+     * @param &lt;T&gt; the service interface type
+     * @param serviceInterface the interface class to lookup
+     * @return an Optional containing the first registered implementation, or empty if none found
+     * @throws NullPointerException if serviceInterface is null
+     */
+    @Override
+    public &lt;T&gt; Optional&lt;T&gt; getService(Class&lt;T&gt; serviceInterface) {
+<span class="fc" id="L104">        List&lt;ServiceEntry&gt; entries = services.get(serviceInterface);</span>
+
+<span class="pc bpc" id="L106" title="1 of 4 branches missed.">        if (entries == null || entries.isEmpty()) {</span>
+<span class="fc" id="L107">            logger.debug(&quot;No service found for: {}&quot;, serviceInterface.getName());</span>
+<span class="fc" id="L108">            return Optional.empty();</span>
+        }
+
+        @SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L112">        T service = (T) entries.get(0).getImplementation();</span>
+<span class="fc" id="L113">        return Optional.of(service);</span>
+    }
+
+    /**
+     * Returns all registered implementations for the specified service interface.
+     * &lt;p&gt;
+     * Returns an empty list if no implementations are registered.
+     *
+     * @param &lt;T&gt; the service interface type
+     * @param serviceInterface the interface class to lookup
+     * @return a list of all registered implementations (never null, may be empty)
+     * @throws NullPointerException if serviceInterface is null
+     */
+    @Override
+    public &lt;T&gt; List&lt;T&gt; getAllServices(Class&lt;T&gt; serviceInterface) {
+<span class="fc" id="L128">        List&lt;ServiceEntry&gt; entries = services.get(serviceInterface);</span>
+
+<span class="pc bpc" id="L130" title="1 of 4 branches missed.">        if (entries == null || entries.isEmpty()) {</span>
+<span class="fc" id="L131">            return Collections.emptyList();</span>
+        }
+
+<span class="fc" id="L134">        List&lt;T&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">        for (ServiceEntry entry : entries) {</span>
+            @SuppressWarnings(&quot;unchecked&quot;)
+<span class="fc" id="L137">            T service = (T) entry.getImplementation();</span>
+<span class="fc" id="L138">            result.add(service);</span>
+<span class="fc" id="L139">        }</span>
+
+<span class="fc" id="L141">        logger.debug(&quot;Found {} services for: {}&quot;, result.size(), serviceInterface.getName());</span>
+<span class="fc" id="L142">        return result;</span>
+    }
+
+    /**
+     * Unregisters a specific service implementation.
+     * &lt;p&gt;
+     * Removes the specified implementation from the registry. If this was the last
+     * implementation for the interface, the interface entry is removed from the registry.
+     * Uses identity comparison (==) to match implementations.
+     *
+     * @param serviceInterface the interface class
+     * @param implementation the implementation instance to remove
+     */
+    @Override
+    public void unregisterService(Class&lt;?&gt; serviceInterface, Object implementation) {
+<span class="fc" id="L157">        List&lt;ServiceEntry&gt; entries = services.get(serviceInterface);</span>
+
+<span class="fc bfc" id="L159" title="All 2 branches covered.">        if (entries != null) {</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">            entries.removeIf(entry -&gt; entry.getImplementation() == implementation);</span>
+<span class="fc" id="L161">            logger.info(&quot;Unregistered service: {} -&gt; {}&quot;, serviceInterface.getName(),</span>
+<span class="fc" id="L162">                    implementation.getClass().getName());</span>
+
+<span class="fc bfc" id="L164" title="All 2 branches covered.">            if (entries.isEmpty()) {</span>
+<span class="fc" id="L165">                services.remove(serviceInterface);</span>
+            }
+        }
+<span class="fc" id="L168">    }</span>
+
+    /**
+     * Removes all registered services from the registry.
+     */
+    public void clear() {
+<span class="fc" id="L174">        int count = services.values().stream().mapToInt(List::size).sum();</span>
+<span class="fc" id="L175">        services.clear();</span>
+<span class="fc" id="L176">        logger.info(&quot;Cleared all {} registered services&quot;, count);</span>
+<span class="fc" id="L177">    }</span>
+
+    private static class ServiceEntry {
+        private final Object implementation;
+        private final long registrationTime;
+
+<span class="fc" id="L183">        ServiceEntry(Object implementation) {</span>
+<span class="fc" id="L184">            this.implementation = implementation;</span>
+<span class="fc" id="L185">            this.registrationTime = System.currentTimeMillis();</span>
+<span class="fc" id="L186">        }</span>
+
+        Object getImplementation() {
+<span class="fc" id="L189">            return implementation;</span>
+        }
+
+        long getRegistrationTime() {
+<span class="fc" id="L193">            return registrationTime;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

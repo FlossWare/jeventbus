@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+JEventBus,org.flossware.jeventbus,ServiceRegistryImpl.ServiceEntry,0,15,0,0,0,6,0,3,0,3
+JEventBus,org.flossware.jeventbus,InMemoryMessageBus.SubscriptionImpl,0,42,0,2,0,15,0,7,0,6
+JEventBus,org.flossware.jeventbus,ServiceRegistryImpl,0,198,2,18,0,46,2,17,0,9
+JEventBus,org.flossware.jeventbus,InMemoryMessageBus,0,180,2,12,0,51,2,15,0,10
+JEventBus,org.flossware.jeventbus.api,Message.Builder,0,54,0,2,0,18,0,10,0,9
+JEventBus,org.flossware.jeventbus.api,Message,0,71,0,6,0,16,0,11,0,8

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.268" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.624" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/test-classes:/home/sfloess/Development/github/FlossWare/jeventbus/target/classes:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:"/>
+    <property name="java.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/test-classes:/home/sfloess/Development/github/FlossWare/jeventbus/target/classes:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/6.1.0/junit-jupiter-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/6.1.0/junit-jupiter-api-6.1.0.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/6.1.0/junit-platform-commons-6.1.0.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/6.1.0/junit-jupiter-params-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/6.1.0/junit-jupiter-engine-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/6.1.0/junit-platform-engine-6.1.0.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://adoptium.net/"/>
@@ -13,9 +13,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/home/sfloess/.sdkman/candidates/java/21.0.11-tem/lib"/>
-    <property name="sun.java.command" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/surefire/surefirebooter-20260524003835047_3.jar /home/sfloess/Development/github/FlossWare/jeventbus/target/surefire 2026-05-24T00-38-34_907-jvmRun1 surefire-20260524003835047_1tmp surefire_0-20260524003835047_2tmp"/>
+    <property name="sun.java.command" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/surefire/surefirebooter-20260524185954426_3.jar /home/sfloess/Development/github/FlossWare/jeventbus/target/surefire 2026-05-24T18-59-54_231-jvmRun1 surefire-20260524185954426_1tmp surefire_0-20260524185954426_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/test-classes:/home/sfloess/Development/github/FlossWare/jeventbus/target/classes:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:"/>
+    <property name="surefire.test.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/test-classes:/home/sfloess/Development/github/FlossWare/jeventbus/target/classes:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/6.1.0/junit-jupiter-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/6.1.0/junit-jupiter-api-6.1.0.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/6.1.0/junit-platform-commons-6.1.0.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/6.1.0/junit-jupiter-params-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/6.1.0/junit-jupiter-engine-6.1.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/6.1.0/junit-platform-engine-6.1.0.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/sfloess"/>
     <property name="user.language" value="en"/>
@@ -28,7 +28,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/surefire/surefirebooter-20260524003835047_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/sfloess/Development/github/FlossWare/jeventbus/target/surefire/surefirebooter-20260524185954426_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.11+10-LTS"/>
     <property name="user.name" value="sfloess"/>
@@ -55,71 +55,71 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testRegisterNullServiceInterface" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.17">
-    <system-out><![CDATA[00:38:36.086 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+  <testcase name="testRegisterNullServiceInterface" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.414">
+    <system-out><![CDATA[18:59:57.329 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterMultipleImplementations" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.008">
-    <system-out><![CDATA[00:38:36.115 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
-00:38:36.116 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.118 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.118 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.119 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- Found 3 services for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
+  <testcase name="testRegisterMultipleImplementations" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.02">
+    <system-out><![CDATA[18:59:57.399 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+18:59:57.401 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.408 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.408 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.409 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- Found 3 services for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
 ]]></system-out>
   </testcase>
-  <testcase name="testUnregisterService" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.005">
-    <system-out><![CDATA[00:38:36.124 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
-00:38:36.125 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.126 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.126 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- Found 2 services for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
-00:38:36.127 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Unregistered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.127 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- Found 1 services for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
+  <testcase name="testUnregisterService" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.009">
+    <system-out><![CDATA[18:59:57.423 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+18:59:57.425 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.426 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.426 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- Found 2 services for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
+18:59:57.427 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Unregistered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.428 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- Found 1 services for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
 ]]></system-out>
   </testcase>
-  <testcase name="testClear" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.008">
-    <system-out><![CDATA[00:38:36.131 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
-00:38:36.131 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.132 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.136 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Cleared all 2 registered services
+  <testcase name="testClear" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.017">
+    <system-out><![CDATA[18:59:57.439 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+18:59:57.440 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.440 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.446 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Cleared all 2 registered services
 ]]></system-out>
   </testcase>
-  <testcase name="testGetServiceReturnsFirst" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.003">
-    <system-out><![CDATA[00:38:36.140 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
-00:38:36.140 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.141 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+  <testcase name="testGetServiceReturnsFirst" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.004">
+    <system-out><![CDATA[18:59:57.453 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+18:59:57.454 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.455 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterNonInterface" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.003">
-    <system-out><![CDATA[00:38:36.144 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+  <testcase name="testRegisterNonInterface" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.005">
+    <system-out><![CDATA[18:59:57.460 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
 ]]></system-out>
   </testcase>
-  <testcase name="testUnregisterLastService" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.003">
-    <system-out><![CDATA[00:38:36.149 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
-00:38:36.149 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.150 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Unregistered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
-00:38:36.150 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- No service found for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
+  <testcase name="testUnregisterLastService" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.007">
+    <system-out><![CDATA[18:59:57.469 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+18:59:57.470 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.471 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Unregistered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+18:59:57.471 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- No service found for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterAndGetService" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.002">
-    <system-out><![CDATA[00:38:36.153 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
-00:38:36.154 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
+  <testcase name="testRegisterAndGetService" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.003">
+    <system-out><![CDATA[18:59:57.477 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+18:59:57.478 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- Registered service: org.flossware.jeventbus.ServiceRegistryImplTest$TestService -> org.flossware.jeventbus.ServiceRegistryImplTest$TestServiceImpl
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterWrongImplementation" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.003">
-    <system-out><![CDATA[00:38:36.157 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+  <testcase name="testRegisterWrongImplementation" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.006">
+    <system-out><![CDATA[18:59:57.482 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
 ]]></system-out>
   </testcase>
-  <testcase name="testGetServiceNotFound" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.002">
-    <system-out><![CDATA[00:38:36.161 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
-00:38:36.162 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- No service found for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
+  <testcase name="testGetServiceNotFound" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.005">
+    <system-out><![CDATA[18:59:57.505 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+18:59:57.507 [main] DEBUG org.flossware.jeventbus.ServiceRegistryImpl -- No service found for: org.flossware.jeventbus.ServiceRegistryImplTest$TestService
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterNullImplementation" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.002">
-    <system-out><![CDATA[00:38:36.164 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+  <testcase name="testRegisterNullImplementation" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.006">
+    <system-out><![CDATA[18:59:57.513 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
 ]]></system-out>
   </testcase>
-  <testcase name="testGetAllServicesNotFound" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.002">
-    <system-out><![CDATA[00:38:36.168 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
+  <testcase name="testGetAllServicesNotFound" classname="org.flossware.jeventbus.ServiceRegistryImplTest" time="0.007">
+    <system-out><![CDATA[18:59:57.525 [main] INFO org.flossware.jeventbus.ServiceRegistryImpl -- ServiceRegistry created
 ]]></system-out>
   </testcase>
 </testsuite>

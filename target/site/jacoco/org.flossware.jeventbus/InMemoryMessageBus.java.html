@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InMemoryMessageBus.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JEventBus</a> &gt; <a href="index.source.html" class="el_package">org.flossware.jeventbus</a> &gt; <span class="el_source">InMemoryMessageBus.java</span></div><h1>InMemoryMessageBus.java</h1><pre class="source lang-java linenums">package org.flossware.jeventbus;
+
+import org.flossware.jeventbus.api.Message;
+import org.flossware.jeventbus.api.MessageBus;
+import org.flossware.jeventbus.api.MessageHandler;
+import org.flossware.jeventbus.api.Subscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.*;
+
+/**
+ * In-memory message bus for inter-application communication.
+ * Uses asynchronous dispatch to prevent blocking publishers.
+ * &lt;p&gt;
+ * This implementation provides a topic-based publish-subscribe messaging system
+ * where publishers can send messages to topics and subscribers receive messages
+ * from topics they're interested in. Message delivery is asynchronous and uses
+ * a fixed thread pool to dispatch messages to handlers.
+ * &lt;p&gt;
+ * &lt;b&gt;Thread Safety:&lt;/b&gt; This class is thread-safe. Uses ConcurrentHashMap for subscribers
+ * map and CopyOnWriteArrayList for subscriber lists. All operations are thread-safe.
+ * &lt;p&gt;
+ * Example usage:
+ * {@code
+ * InMemoryMessageBus messageBus = new InMemoryMessageBus();
+ *
+ * // Subscribe to a topic
+ * Subscription subscription = messageBus.subscribe(&quot;my-topic&quot;, message -&gt; {
+ *     System.out.println(&quot;Received: &quot; + new String(message.getPayload()));
+ * });
+ *
+ * // Publish a message
+ * Message message = Message.builder()
+ *     .topic(&quot;my-topic&quot;)
+ *     .sourceApplicationId(&quot;my-app&quot;)
+ *     .payload(&quot;Hello, World!&quot;.getBytes())
+ *     .build();
+ * messageBus.publish(&quot;my-topic&quot;, message);
+ *
+ * // Unsubscribe
+ * subscription.cancel();
+ *
+ * // When done
+ * messageBus.shutdown();
+ * }
+ *
+ * @see MessageBus
+ * @see Message
+ * @see Subscription
+ */
+public class InMemoryMessageBus implements MessageBus {
+
+<span class="fc" id="L58">    private static final Logger logger = LoggerFactory.getLogger(InMemoryMessageBus.class);</span>
+<span class="fc" id="L59">    private static final List&lt;SubscriptionImpl&gt; EMPTY_SUBSCRIBERS = Collections.emptyList();</span>
+
+    private final Map&lt;String, CopyOnWriteArrayList&lt;SubscriptionImpl&gt;&gt; subscribers;
+    private final ExecutorService dispatchExecutor;
+
+    /**
+     * Creates a new in-memory message bus.
+     * &lt;p&gt;
+     * Initializes a fixed thread pool with 4 threads for asynchronous message dispatch.
+     * Dispatcher threads are daemon threads to not prevent JVM shutdown.
+     */
+<span class="fc" id="L70">    public InMemoryMessageBus() {</span>
+<span class="fc" id="L71">        this.subscribers = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L72">        this.dispatchExecutor = Executors.newFixedThreadPool(4, r -&gt; {</span>
+<span class="fc" id="L73">            Thread t = new Thread(r, &quot;message-bus-dispatcher&quot;);</span>
+<span class="fc" id="L74">            t.setDaemon(true);</span>
+<span class="fc" id="L75">            return t;</span>
+        });
+<span class="fc" id="L77">        logger.info(&quot;InMemoryMessageBus started&quot;);</span>
+<span class="fc" id="L78">    }</span>
+
+    /**
+     * Publishes a message to the specified topic.
+     * &lt;p&gt;
+     * The message is delivered asynchronously to all active subscribers of the topic.
+     * If there are no subscribers, the message is discarded. Exceptions in message
+     * handlers are caught and logged but do not affect other subscribers.
+     *
+     * @param topic the topic to publish to
+     * @param message the message to publish
+     * @throws NullPointerException if topic or message is null
+     */
+    @Override
+    public void publish(String topic, Message message) {
+<span class="fc" id="L93">        List&lt;SubscriptionImpl&gt; topicSubscribers = subscribers.get(topic);</span>
+
+<span class="fc bfc" id="L95" title="All 4 branches covered.">        if (topicSubscribers == null || topicSubscribers.isEmpty()) {</span>
+<span class="fc" id="L96">            logger.debug(&quot;No subscribers for topic: {}&quot;, topic);</span>
+<span class="fc" id="L97">            return;</span>
+        }
+
+<span class="fc" id="L100">        logger.debug(&quot;Publishing message to topic '{}': {} subscribers&quot;, topic, topicSubscribers.size());</span>
+
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        for (SubscriptionImpl subscription : topicSubscribers) {</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">            if (subscription.isActive()) {</span>
+<span class="fc" id="L104">                dispatchExecutor.submit(() -&gt; {</span>
+                    try {
+<span class="fc" id="L106">                        subscription.getHandler().onMessage(message);</span>
+<span class="fc" id="L107">                    } catch (Exception e) {</span>
+<span class="fc" id="L108">                        logger.error(&quot;Error delivering message to subscriber on topic '{}'&quot;, topic, e);</span>
+<span class="fc" id="L109">                    }</span>
+<span class="fc" id="L110">                });</span>
+            }
+<span class="fc" id="L112">        }</span>
+<span class="fc" id="L113">    }</span>
+
+    /**
+     * Subscribes to messages on the specified topic.
+     * &lt;p&gt;
+     * The handler will be invoked asynchronously for each message published to the topic.
+     * The subscription remains active until {@link Subscription#cancel()} is called.
+     *
+     * @param topic the topic to subscribe to
+     * @param handler the handler to invoke for each message
+     * @return a subscription that can be used to cancel the subscription
+     * @throws NullPointerException if topic or handler is null
+     */
+    @Override
+    public Subscription subscribe(String topic, MessageHandler handler) {
+<span class="fc" id="L128">        SubscriptionImpl subscription = new SubscriptionImpl(topic, handler, this);</span>
+
+<span class="fc" id="L130">        subscribers.computeIfAbsent(topic, k -&gt; new CopyOnWriteArrayList&lt;&gt;())</span>
+<span class="fc" id="L131">                .add(subscription);</span>
+
+<span class="fc" id="L133">        logger.info(&quot;New subscription to topic '{}'. Total subscribers: {}&quot;,</span>
+<span class="fc" id="L134">                topic, subscribers.get(topic).size());</span>
+
+<span class="fc" id="L136">        return subscription;</span>
+    }
+
+    /**
+     * Unsubscribes the specified subscription.
+     * &lt;p&gt;
+     * After this call, the subscription's handler will no longer receive messages.
+     * This is equivalent to calling {@link Subscription#cancel()}.
+     *
+     * @param subscription the subscription to cancel
+     */
+    @Override
+    public void unsubscribe(Subscription subscription) {
+<span class="fc bfc" id="L149" title="All 2 branches covered.">        if (subscription instanceof SubscriptionImpl) {</span>
+<span class="fc" id="L150">            SubscriptionImpl impl = (SubscriptionImpl) subscription;</span>
+<span class="fc" id="L151">            impl.cancel();</span>
+        }
+<span class="fc" id="L153">    }</span>
+
+    /**
+     * Internal method to remove a subscription from the subscribers map.
+     * &lt;p&gt;
+     * This is called by SubscriptionImpl when cancelled.
+     *
+     * @param subscription the subscription to remove
+     */
+    void removeSubscription(SubscriptionImpl subscription) {
+<span class="fc" id="L163">        CopyOnWriteArrayList&lt;SubscriptionImpl&gt; topicSubscribers =</span>
+<span class="fc" id="L164">                subscribers.get(subscription.getTopic());</span>
+
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (topicSubscribers != null) {</span>
+<span class="fc" id="L167">            topicSubscribers.remove(subscription);</span>
+<span class="fc" id="L168">            logger.info(&quot;Unsubscribed from topic '{}'. Remaining subscribers: {}&quot;,</span>
+<span class="fc" id="L169">                    subscription.getTopic(), topicSubscribers.size());</span>
+        }
+<span class="fc" id="L171">    }</span>
+
+    /**
+     * Shuts down the message bus.
+     * &lt;p&gt;
+     * Initiates an orderly shutdown of the dispatch executor, waiting up to 10 seconds
+     * for pending message deliveries to complete. If the executor does not terminate
+     * within 10 seconds, a forced shutdown is initiated.
+     */
+    public void shutdown() {
+<span class="fc" id="L181">        logger.info(&quot;Shutting down message bus&quot;);</span>
+<span class="fc" id="L182">        dispatchExecutor.shutdown();</span>
+        try {
+<span class="fc bfc" id="L184" title="All 2 branches covered.">            if (!dispatchExecutor.awaitTermination(10, TimeUnit.SECONDS)) {</span>
+<span class="fc" id="L185">                dispatchExecutor.shutdownNow();</span>
+            }
+<span class="fc" id="L187">        } catch (InterruptedException e) {</span>
+<span class="fc" id="L188">            dispatchExecutor.shutdownNow();</span>
+<span class="fc" id="L189">            Thread.currentThread().interrupt();</span>
+<span class="fc" id="L190">        }</span>
+<span class="fc" id="L191">    }</span>
+
+    private static class SubscriptionImpl implements Subscription {
+        private final String id;
+        private final String topic;
+        private final MessageHandler handler;
+        private final InMemoryMessageBus bus;
+<span class="fc" id="L198">        private volatile boolean active = true;</span>
+
+<span class="fc" id="L200">        SubscriptionImpl(String topic, MessageHandler handler, InMemoryMessageBus bus) {</span>
+<span class="fc" id="L201">            this.id = UUID.randomUUID().toString();</span>
+<span class="fc" id="L202">            this.topic = topic;</span>
+<span class="fc" id="L203">            this.handler = handler;</span>
+<span class="fc" id="L204">            this.bus = bus;</span>
+<span class="fc" id="L205">        }</span>
+
+        @Override
+        public String getTopic() {
+<span class="fc" id="L209">            return topic;</span>
+        }
+
+        @Override
+        public void cancel() {
+<span class="fc bfc" id="L214" title="All 2 branches covered.">            if (active) {</span>
+<span class="fc" id="L215">                active = false;</span>
+<span class="fc" id="L216">                bus.removeSubscription(this);</span>
+            }
+<span class="fc" id="L218">        }</span>
+
+        @Override
+        public boolean isActive() {
+<span class="fc" id="L222">            return active;</span>
+        }
+
+        public MessageHandler getHandler() {
+<span class="fc" id="L226">            return handler;</span>
+        }
+
+        public String getId() {
+<span class="fc" id="L230">            return id;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
