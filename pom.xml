@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.flossware</groupId>
     <artifactId>jeventbus</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
     <name>JEventBus</name>
     <description>Event bus and service registry for inter-application communication</description>
